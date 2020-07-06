@@ -90,7 +90,7 @@ app.post("/registration", (req, res) => {
     if (req.body.first_name == "" || !nameType.test(req.body.first_name)) { firstNameError.push("First Name is an error")};    
     if (req.body.last_name == "" || !nameType.test(req.body.last_name)) { lastNameError.push("Last Name is an error")};    
     if (req.body.email == "") { emailError.push("You must enter an email")};    
-    if (req.body.Password == "" || !passwordType.test(req.body.Password)) { passwordError.push("password should be 6 to 12 digits, and at least one character and digit included")};
+    if (req.body.Password == "" || !passwordType.test(req.body.Password)) { passwordError.push("password should be 6 to 12 digits, and at least each one upper character, lower character, and digit included")};
 
     if (firstNameError.length > 0) {
 
@@ -166,10 +166,6 @@ app.post("/registration", (req, res) => {
 
         res.redirect("/"); 
     }
-
-    // only number and english characters
-    
-    
 })
 
 const PORT = 3000;
