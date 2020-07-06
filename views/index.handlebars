@@ -1,0 +1,118 @@
+<div id="mainheader">
+    <h1>Meals and grocery
+        <br>
+        delivered</h1>
+    <button class="button hover">
+        <a href="/package">View Package</a>
+    </button>
+    <button class="button hover">
+        <a href="/package">BUILD YOUR ORDER</a>
+    </button>
+</div>
+
+<div id="grid_Container">
+
+    <div id="grocery_img">
+        
+    </div>
+    <div id="mid_text">
+        Shop fruits, vegetables, juices, coffee & more from home. No additional fees.
+    </div>
+    <div>
+        <button class="button hover">
+            <a href="https://livefitfood.ca/collections/grocery">ORDER NOW</a>
+        </button>
+    </div>
+</div>
+
+<h2 id="contents">No cooking, just eating</h2>
+
+<div class="grid_Container_gifs">
+
+    <div class="contentsbox">
+        <div>
+            <img
+                class="gif"
+                src="https://cdn.shopify.com/s/files/1/1758/4293/files/Pick_1.gif?14089"/>
+            <h1>Pick</h1>
+            100+ menu of all-natural dishes.
+        </div>
+    </div>
+    <div class="contentsbox">
+        <div>
+            <img
+                class="gif"
+                src="https://cdn.shopify.com/s/files/1/1758/4293/files/heat.gif?14089"/>
+            <h1>Heat</h1>
+            Cooked & delivered.
+        </div>
+    </div>
+    <div class="contentsbox">
+        <div>
+            <img
+                class="gif"
+                src="https://cdn.shopify.com/s/files/1/1758/4293/files/eat_1_1.gif?14089"/>
+            <h1 class="contentname">Eat</h1>
+            Delicious & nutritious.
+        </div>
+    </div>
+    <div class="contentsbox">
+        <div>
+            <img
+                class="gif"
+                src="https://cdn.shopify.com/s/files/1/1758/4293/files/repeat---Copy.gif?14095"/>
+            <h1>Repeat</h1>
+            Skip a week or cancel any time.
+        </div>
+    </div>
+</div>
+
+<div id="center_header">
+    <h1 >Eat towards your goals</h2>
+    <br>
+    <h2 >Lose weight, gain muscle, go Vegan or eat Keto - we've got you covered</h2>
+    <br>
+    <button class="button hover">
+        <a href="/package">Our Goal Package</a>
+    </button>
+</div>
+
+<h1>Our chefs are making these right now!</h1>
+
+<h3>You could be chowing down on any of these meals any time you choose - seriously!
+    <br>
+    Order some (or all) of these meals and see why thousands of Canadians stock us
+    in their fridge!</h2>
+
+<div>
+    <h2>Top meals</h2>
+
+    <div class="grid_Container_gifs">
+        {{#each data}}
+
+            <div>
+                <img src="/img/{{this.imgPath}}">
+                <br>
+                Title :
+                {{this.title}}
+                <br>
+                Price :
+                {{this.price}}
+
+            </div>
+        {{/each}}
+    </div>
+
+    <h2>Mouth watering? We've got more where those came from on our full menu.</h2>
+    <button class="button hover">
+        <a href="/package">OUR FULL MENU</a>
+    </button>
+
+    <div id="center_header_2">
+        <h1 >Ready to eat?</h1>
+        <br>
+        <h2 >Try LiveFit today with no commitment.</h2>
+        <br>
+        <h2 >Skip or cancel anytime.</h2>
+        <br>
+    </div>

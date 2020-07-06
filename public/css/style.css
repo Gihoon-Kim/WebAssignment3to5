@@ -1,0 +1,164 @@
+body {
+    text-align: center;
+}
+
+#logo_container {
+    text-align: left;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+}
+
+.navbar {
+    display: inline-block;
+    width: 100%;
+    background: hotpink;
+}
+.navbar > div {
+    float: right;
+}
+.navbar > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navbar > ul > li {
+    display: inline-block;
+    padding: 0;
+}
+.navbar a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+}
+.navbar a:hover {
+    background: deeppink;
+}
+
+#mainheader {
+    background-image: url("../img/background.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#package_mainheader {
+    height: 400px;
+    background-image: url("../img/meal_packages.jpg");
+    background-color: rgba(0, 0, 0, 0.3);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainheader h1 {
+
+    font-size: 100px;
+}
+
+#package_mainheader h1 {
+    padding-top: 150px;
+    font-size: 100px;
+    color: white;
+}
+
+.button {
+    font-size: 20px;
+    height: 50px;
+    background-color: red;
+    border: 0;
+    outline: 0;
+
+    color: #333;
+    transition: all 1.9s, color 0.5;
+}
+
+.hover:hover {
+    box-shadow: 200px 0 0 0 rgba(0,0,0,0.25) inset, -200px 0 0 0 rgba(0,0,0,0.25) inset;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+#grid_Container {
+    background-color: green;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid_Container_gifs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.contentsbox {
+    width: 220px;
+    height: 450px;
+    padding: 10px;
+    margin: 20px 50px 10px 10px;
+}
+
+#grocery_img {
+    background-image: url("../img/grocery.JPG");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#mid_text {
+    padding-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+.gif {
+    margin-left: 30px;
+    width: 220px;
+    height: 200px;
+}
+
+#center_header {
+    height: 500px;
+    width: 100%;
+    padding-top: 10%;
+    background-image: url("//cdn.shopify.com/s/files/1/1758/4293/files/goalbackground_1600x.png?v=1583462357");
+    background-repeat: no-repeat;
+    display: table;
+}
+
+#center_header > h1,
+#center_header > h2 {
+    color: white;
+}
+
+#center_header_2 {
+    height: 500px;
+    width: 100%;
+    padding-top: 10%;
+    background-image: url("//cdn.shopify.com/s/files/1/1758/4293/files/munch_5_1600x_4d4b80d7-f38b-4bd6-89f1-331a6f02cf5d_1600x.jpg?v=1540373176");
+    background-repeat: no-repeat;
+    display: table;
+}
+
+#center_header_2 > h1,
+#center_header_2 > h2 {
+    color: white;
+}
+
+.login_way {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*
+
+
+*/
+
+.errors {
+    font-size: 0.9rem;
+    color: red;
+}
