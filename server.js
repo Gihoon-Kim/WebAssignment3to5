@@ -164,8 +164,13 @@ app.post("/registration", (req, res) => {
             if (error) { console.log(error); }
         });
 
-        res.redirect("/"); 
+        res.redirect("/dashboard"); 
     }
+});
+
+app.get("/dashboard", (req, res) => {
+
+    res.render("dashboard");
 })
 
 const PORT = 3000;
