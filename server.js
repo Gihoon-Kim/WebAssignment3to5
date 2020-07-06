@@ -74,7 +74,7 @@ app.get("/registration", (req, res) => {
 })
 
 // Save user infomation
-const userInfo = [];
+var userInfo = [];
 
 app.post("/registration", (req, res) => {
 
@@ -167,6 +167,7 @@ app.post("/registration", (req, res) => {
             if (error) { console.log(error); }
         });
 
+        userInfo = [];
         userInfo.push(req.body.first_name);
         userInfo.push(req.body.last_name);
         userInfo.push(req.body.email);
