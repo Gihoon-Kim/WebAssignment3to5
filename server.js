@@ -49,14 +49,18 @@ app.post("/login", (req, res) => {
 
         res.render("login", {
 
-            emailError : emailError
+            emailError : emailError,
+            email : req.body.email,
+            password : req.body.Password
         });
     }
     else if (passwordError.length > 0) {
 
         res.render("login", {
 
-            passwordError : passwordError
+            passwordError : passwordError,
+            email : req.body.email,
+            password : req.body.Password
         });
     }
     else { res.redirect("/"); }
@@ -84,20 +88,28 @@ app.post("/registration", (req, res) => {
     if (req.body.first_name == "" || !nameType.test(req.body.first_name)) { firstNameError.push("First Name is an error")};    
     if (req.body.last_name == "" || !nameType.test(req.body.last_name)) { lastNameError.push("Last Name is an error")};    
     if (req.body.email == "") { emailError.push("You must enter an email")};    
-    if (req.body.Password == "" || !passwordType.test(req.body.Password)) { passwordError.push("Error happend")};
+    if (req.body.Password == "" || !passwordType.test(req.body.Password)) { passwordError.push("password should be 6 to 12 digits, and at least one character and digit included")};
 
     if (firstNameError.length > 0) {
 
         res.render("registration", {
 
-            firstNameError : firstNameError
+            firstNameError : firstNameError,
+            firstName : req.body.first_name,
+            lastName : req.body.last_name,
+            regEmail : req.body.email,
+            password : req.body.Password
         });
     }
     else if (lastNameError.length > 0) {
 
         res.render("registration", {
 
-            lastNameError : lastNameError
+            lastNameError : lastNameError,
+            firstName : req.body.first_name,
+            lastName : req.body.last_name,
+            regEmail : req.body.email,
+            password : req.body.Password
         });
     }
 
@@ -105,14 +117,22 @@ app.post("/registration", (req, res) => {
 
         res.render("registration", {
 
-            emailError : emailError
+            emailError : emailError,
+            firstName : req.body.first_name,
+            lastName : req.body.last_name,
+            regEmail : req.body.email,
+            password : req.body.Password
         });
     }
     else if (passwordError.length > 0) {
 
         res.render("registration", {
 
-            passwordError : passwordError
+            passwordError : passwordError,
+            firstName : req.body.first_name,
+            lastName : req.body.last_name,
+            regEmail : req.body.email,
+            password : req.body.Password
         });
     }
     else { res.redirect("/"); }
