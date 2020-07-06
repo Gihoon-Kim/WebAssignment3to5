@@ -1,6 +1,8 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const router = express.Router();
 
 const meal = require("./models/meals");
 
@@ -135,7 +137,35 @@ app.post("/registration", (req, res) => {
             password : req.body.Password
         });
     }
-    else { res.redirect("/"); }
+    else { 
+        
+        let email = req.body.email;
+        
+        let transporter = nodemailer.createTransport({
+
+            service: 'gmail',
+            auth: {
+                
+                user: 'tempGkim@gmail.com',
+                pass: '1q2w3e4r1!'
+            }
+        });
+
+        let mailOptions = {
+
+            from : 'tempGkim@gmail.com',
+            to: email,
+            subject: 'Registration was succeed',
+            text: 'Thank you for registration our web.!'
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+
+            if (error) { console.log(error); }
+        });
+
+        res.redirect("/"); 
+    }
 
     // only number and english characters
     
