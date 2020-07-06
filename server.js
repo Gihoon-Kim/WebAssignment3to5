@@ -86,7 +86,7 @@ app.post("/registration", (req, res) => {
     // at least one lower case character,
     // one upper case character,
     // and number need
-    var passwordType = /(?=.*[a-z])(?=.*[A-Z]).{6,12}/
+    var passwordType = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,12}$/
 
     const passwordError = [];
 
