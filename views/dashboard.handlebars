@@ -1,7 +1,15 @@
 <div>
     <div>
         <h1>Thank you for signing up!</h1>
-        <h2>Registration Complete!</h2>
+        <h2>Your information :</h2>
+
+        {{#each userInfo}}
+
+            <div>
+                <h5>{{this}}</h5>
+            </div>
+        {{/each}}
+        <h2>Registration was succed</h2>
 
         <form method="get" action="/">
             <input type="submit" value="Go to home"/><br/><br/><br/>

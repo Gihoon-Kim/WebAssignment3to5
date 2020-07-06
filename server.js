@@ -73,6 +73,9 @@ app.get("/registration", (req, res) => {
     res.render("registration");
 })
 
+// Save user infomation
+const userInfo = [];
+
 app.post("/registration", (req, res) => {
 
     var nameType = /^[A-Za-z]{3,30}$/;
@@ -164,13 +167,19 @@ app.post("/registration", (req, res) => {
             if (error) { console.log(error); }
         });
 
+        userInfo.push(req.body.first_name);
+        userInfo.push(req.body.last_name);
+        userInfo.push(req.body.email);
         res.redirect("/dashboard"); 
     }
 });
 
 app.get("/dashboard", (req, res) => {
 
-    res.render("dashboard");
+    res.render("dashboard", {
+
+        userInfo: userInfo
+    });
 })
 
 const PORT = 3000;
