@@ -1,0 +1,22 @@
+<div class="row">
+
+    {{#each data}}
+        <div class="desc">
+            <div id="descPic">
+                <img id="dpic" src="/img/{{this.imagePath}}" alt="item Image1"></div>
+        </div>
+        <div class="DescBox">
+            <span id="itemName">
+                {{this.title}}</span>
+            <p id="info">
+                {{this.content_synopsis}}</p>
+            <span id="info">${{this.price}}</span>
+            <br><br>
+        {{/each}}
+        <label id = "amountPack">How many packages do you want</label>
+<div class="number">
+<button onclick="Decreasing">-</button></a>
+<span id="numberUpDown">1</span>
+<button onclick="Increasing">+</button></a>
+<button onclick="addOrder">Add to cart</button></a>
+</div>

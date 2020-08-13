@@ -3,10 +3,10 @@
         <br>
         delivered</h1>
     <button class="button hover">
-        <a href="/package">View Package</a>
+        <a href="/product/package">View Package</a>
     </button>
     <button class="button hover">
-        <a href="/package">BUILD YOUR ORDER</a>
+        <a href="/product/package">BUILD YOUR ORDER</a>
     </button>
 </div>
 
@@ -73,7 +73,7 @@
     <h2 >Lose weight, gain muscle, go Vegan or eat Keto - we've got you covered</h2>
     <br>
     <button class="button hover">
-        <a href="/package">Our Goal Package</a>
+        <a href="/product/package">Our Goal Package</a>
     </button>
 </div>
 
@@ -91,13 +91,11 @@
         {{#each data}}
 
             <div>
-                <img src="/img/{{this.imgPath}}">
+                <a href="description/{{this.id}}"> <img src="/img/{{this.imagePath}}"> </a>
                 <br>
-                Title :
-                {{this.title}}
+                Title : {{this.title}}
                 <br>
-                Price :
-                {{this.price}}
+                Price : ${{this.price}}
 
             </div>
         {{/each}}
@@ -105,7 +103,7 @@
 
     <h2>Mouth watering? We've got more where those came from on our full menu.</h2>
     <button class="button hover">
-        <a href="/package">OUR FULL MENU</a>
+        <a href="/product/package">OUR FULL MENU</a>
     </button>
 
     <div id="center_header_2">
