@@ -1,0 +1,15 @@
+<h2>All meals</h2>
+
+    <div class="grid_Container_gifs">
+        {{#each data}}
+
+            <div>
+                <a href="description/{{this.id}}"> <img src="/img/{{this.imagePath}}"> </a>
+                <br>
+                Title : {{this.title}}
+                <br>
+                Price : ${{this.price}}
+
+            </div>
+        {{/each}}
+    </div>

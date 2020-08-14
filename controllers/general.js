@@ -9,16 +9,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 const meal = require("../data-service-auth");
 const users = require("../data-service-user");
 
-
 // Setup the static folder that static resources can load from like images, css
 // files, etc.
 app.use(express.static("static"));
 
-
-var user = {
+let user = {
     password: "1q2w3e4rQ",
     email: "gkim61@myseneca.ca"
-  };
+};
 
 // Setup client-sessions
 app.use(clientSessions({
@@ -33,25 +31,20 @@ app.use(function (req, res, next) {
     next();
 });
 
-function ensureLogin(req, res, next) {
-    if (!req.session.user) {
-        res.redirect("/login");
-    } else {
-        next();
-    }
-}
-function ensureLogin2(req, res, next) {
-    if (!req.session.user.isAdmin) {
-        res.redirect("/login");
-    } else {
-        next();
-    }
-}
+// function ensureLogin(req, res, next) {     if (!req.session.user) {
+// res.redirect("/login");     } else {          if
+// (!((req.session.user.Email).localeCompare("ss9112000@gmail.com") == 0)) {
+// if (!(req.session.user.isClerk)) {
+// console.log(req.session.user.Email);             console.log("You are not
+// authorised");             res.redirect("/authorization");
+// res.render("403");         } else {             next();         }     } }
 
 router.get("/", (req, res) => {
 
     meal
-        .find({isPackage: false})
+        .find({
+            top_package: true,
+            isPackage: false})
         .exec()
         .then((meal) => {
             res.render("general/index", {
@@ -100,22 +93,14 @@ router.post("/login", (req, res) => {
             password: req.body.Password
         });
     } else {
-        console.log(usermail);
-        console.log(userpassword);
-
-        console.log(user.email);
-        console.log(user.password);
-        if (usermail == user.email && userpassword == user.password) {
-
-            req.session.user = {
-                email: user.email
-            };
-            res.redirect("/");
-        }
-        else {
-            res.render("general/login", {errorMsg: "invalid usermail or password"});
-        }
-    }
+        users
+            .find({email: usermail})
+            .then((users) => {
+                if (users) 
+                    res.redirect("/");
+                }
+            )
+    };
 });
 
 router.get("/logout", (req, res) => {
@@ -129,6 +114,17 @@ router.get("/registration", (req, res) => {
 
     res.render("general/registration");
 });
+
+router.get("/allMeals", (req, res) => {
+    meal
+        .find({isPackage: false})
+        .exec()
+        .then((meal) => {
+            res.render("general/description", {
+                data: JSON.parse(JSON.stringify(meal))
+            });
+        })
+})
 
 router.get("/description/:mealID", (req, res) => {
 
@@ -274,8 +270,36 @@ router.get("/dashboard", (req, res) => {
     res.render("general/dashboard", {userInfo: userInfo});
 })
 
-router.get("/addPackage", ensureLogin, (req, res) => {
+router.get("/addPackage", (req, res) => {
     res.render("product/addPackage");
+});
+
+app.get("/package/add", (req, res) => {
+    res.render("addPackage");
+});
+
+router.post("/package/add", (req, res) => {
+    let newMeal;
+    newMeal = new meal(
+        {
+            title: req.body.title, 
+            price: req.body.price, 
+            content_synopsis: req.body.content_synopsis, 
+            isPackage: req.body.isPackage, 
+            top_package: false,
+            imagePath: req.body.imageFile
+        }
+    );
+
+    newMeal.save((err) => {
+        if (err) {
+            console.log(`There was an error saving the meal: ${err}`);
+        } else {
+            console.log(`Meal ${newMeal.title} is saved`);
+        }
+    });
+
+    res.redirect("/");
 });
 
 module.exports = router;

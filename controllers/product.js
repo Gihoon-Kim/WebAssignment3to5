@@ -72,4 +72,23 @@ router.get("/descriptionPack/:mealID", (req, res) => {
         })
 });
 
+module.exports.addPackage = function (packageData) {
+    return new Promise(function (resolve, reject) {
+
+        for (var prop in packageData) {
+            if(packageData[prop] == '')
+            packageData[prop] = null;
+        }
+
+        packages.create(packageData).then(() => {
+            resolve();
+        }).catch((err)=>{
+            console.log(err);
+            reject("unable to create the Package");
+        });
+
+    });
+};
+
 module.exports = router;
+
